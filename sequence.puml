@@ -1,19 +1,26 @@
 @startuml
 
+box "PIONEER" #LightBlue
 actor Becca
-actor Alice
-
 database PIONEER
-database SECRETS
-database BECCADB
-
 collections keystore
+end box
+
+box "Stats" #Orange
+actor Alice
+database SECRETS
+end box
+
+== Encrypt PIONEER data ==
 
 PIONEER -> Becca: PIONEER data
 Becca -> keystore: Generate and store key
+
+== Store and send encrypted PIONEER data ==
+
+create database BECCADB
 Becca -> BECCADB: encrypted PIONEER data
-
-
+Becca -> Alice: encrypted PIONEER data
 
 
 @enduml
