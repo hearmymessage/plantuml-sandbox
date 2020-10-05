@@ -15,12 +15,23 @@ end box
 
 PIONEER -> Becca: PIONEER data
 Becca -> keystore: Generate and store key
-
-== Store and send encrypted PIONEER data ==
-
+Becca -> Becca: Encrypt PIONEER data
 create database BECCADB
-Becca -> BECCADB: encrypted PIONEER data
+Becca <- BECCADB: encrypted PIONEER data
+
+== Send encrypted PIONEER data ==
 Becca -> Alice: encrypted PIONEER data
 
+== Retrieve secret data ==
+SECRETS -> Alice: Secret data
+
+== Combine and return data ==
+Alice -> Alice: Combine data
+Alice -> Becca: Combined data
+
+== Store and Decrypt data ==
+keystore -> Becca: Retrieve key
+Becca -> Becca: Decrypt
+Becca -> BECCADB: Store combined data
 
 @enduml
