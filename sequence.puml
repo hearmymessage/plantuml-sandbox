@@ -4,6 +4,7 @@ box "PIONEER" #LightBlue
 actor Becca
 database PIONEER
 collections keystore
+database BECCADB
 end box
 
 box "Stats" #Orange
@@ -16,7 +17,6 @@ end box
 PIONEER -> Becca: PIONEER data
 Becca -> keystore: Generate and store key
 Becca -> Becca: Encrypt PIONEER data
-create database BECCADB
 Becca <- BECCADB: encrypted PIONEER data
 
 == Send encrypted PIONEER data ==
