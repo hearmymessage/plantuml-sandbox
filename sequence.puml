@@ -1,7 +1,19 @@
 @startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: Another authentication Response
+actor Becca
+actor Alice
+
+database PIONEER
+database SECRETS
+database BECCADB
+
+collections keystore
+
+PIONEER -> Becca: PIONEER data
+Becca -> keystore: Generate and store key
+Becca -> BECCADB: encrypted PIONEER data
+
+
+
+
 @enduml
